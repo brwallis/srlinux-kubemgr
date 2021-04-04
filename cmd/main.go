@@ -10,10 +10,10 @@ import (
 	log "k8s.io/klog"
 
 	// "srlinux.io/kubemgr/pkg/storage"
-	"srlinux.io/kubemgr/internal/agent"
-	"srlinux.io/kubemgr/internal/cpumgr"
-	"srlinux.io/kubemgr/internal/k8s"
-	"srlinux.io/kubemgr/internal/netmgr"
+	"github.com/brwallis/srlinux-kubemgr/internal/agent"
+	"github.com/brwallis/srlinux-kubemgr/internal/cpumgr"
+	"github.com/brwallis/srlinux-kubemgr/internal/k8s"
+	"github.com/brwallis/srlinux-kubemgr/internal/netmgr"
 
 	"github.com/vishvananda/netns"
 )

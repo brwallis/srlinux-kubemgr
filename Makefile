@@ -4,6 +4,8 @@
 #   which was adapted from: https://github.com/vincentbernat/hellogopher/blob/feature/glide/Makefile
 #
 # Package related
+#REPO_USER=${REPO_USER}
+#REPO_PASSWORD=${REPO_PASSWORD}
 BINARY_NAME=kubemgr
 PACKAGE=kubemgr
 ORG_PATH=srlinux.io
@@ -58,7 +60,8 @@ build: | $(BUILDDIR)/$(BINARY_NAME) ; $(info Building $(BINARY_NAME)...) @ ## Bu
 	$(info Done!)
 
 $(BUILDDIR)/$(BINARY_NAME): $(GOFILES) | $(BUILDDIR)
-	@cd $(BASE)/cmd && GOOS=linux GOARCH=amd64 CGO_ENABLED=0 $(GO) build -o $(BUILDDIR)/$(BINARY_NAME) -tags no_openssl -v
+	@cd $(BASE)/cmd && GOPRIVATE=github.com/brwallis GIT_TERMINAL_PROMPT=1 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 $(GO) build -o $(BUILDDIR)/$(BINARY_NAME) -tags no_openssl -v
+#	@cd $(BASE)/cmd && GOPRIVATE=github.com/brwallis/srlinux-go GIT_TERMINAL_PROMPT=1 GOOS=linux GOARCH=amd64 CGO_ENABLED=0 $(GO) build -o $(BUILDDIR)/$(BINARY_NAME) -tags no_openssl -v
 
 
 # Tools
@@ -83,7 +86,7 @@ fmt: ; $(info  Running gofmt...) @ ## Run gofmt on all source files
 # To pass proxy for Docker invoke it as 'make image HTTP_POXY=http://192.168.0.1:8080'
 .PHONY: image
 image: | $(BASE) ; $(info Building SR Linux Kubernetes Agent Docker image...) @ ## Build SR Linux CNI docker image
-	@docker build -t $(TAG) -f $(DOCKERFILE) $(CURDIR) $(DOCKERARGS)
+	@docker build --build-arg REPO_USER=$(REPO_USER) --build-arg REPO_PASSWORD=$(REPO_PASSWORD) -t $(TAG) -f $(DOCKERFILE) $(CURDIR) $(DOCKERARGS)
 # Misc
 
 .PHONY: clean

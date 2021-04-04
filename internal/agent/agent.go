@@ -10,8 +10,8 @@ import (
 
 	log "k8s.io/klog"
 
-	"srlinux.io/go/pkg/ndk/nokia.com/srlinux/sdk/protos"
-	"srlinux.io/kubemgr/internal/config"
+	"github.com/brwallis/srlinux-go/pkg/ndk/nokia.com/srlinux/sdk/protos"
+	"github.com/brwallis/srlinux-kubemgr/internal/config"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/metadata"

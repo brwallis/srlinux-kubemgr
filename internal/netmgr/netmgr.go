@@ -5,13 +5,13 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/brwallis/srlinux-go/pkg/gnmi"
+	"github.com/brwallis/srlinux-go/pkg/net"
+	"github.com/brwallis/srlinux-go/pkg/srlinux"
+	"github.com/brwallis/srlinux-kubemgr/internal/agent"
 	gpb "github.com/openconfig/gnmi/proto/gnmi"
 	"k8s.io/client-go/kubernetes"
 	log "k8s.io/klog"
-	"srlinux.io/go/pkg/gnmi"
-	"srlinux.io/go/pkg/net"
-	"srlinux.io/go/pkg/srlinux"
-	"srlinux.io/kubemgr/internal/agent"
 )
 
 // NetMgr deals with physical interfaces passed into vSRL, the default network-instance, and BGP peers

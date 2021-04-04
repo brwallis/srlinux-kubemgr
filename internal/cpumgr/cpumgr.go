@@ -11,8 +11,8 @@ import (
 
 	log "k8s.io/klog"
 
+	"github.com/brwallis/srlinux-go/pkg/gnmi"
 	gpb "github.com/openconfig/gnmi/proto/gnmi"
-	"srlinux.io/go/pkg/gnmi"
 
 	v1 "k8s.io/api/core/v1"
 	"k8s.io/client-go/informers"

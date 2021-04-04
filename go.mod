@@ -1,8 +1,8 @@
-module srlinux.io/kubemgr
+module github.com/brwallis/srlinux-kubemgr
 
 go 1.16
 
-replace srlinux.io/go => ../srlinux-go
+//replace srlinux.io/go => ../srlinux-go
 
 require (
 	github.com/openconfig/gnmi v0.0.0-20210226144353-8eae1937bf84
@@ -14,5 +14,4 @@ require (
 	k8s.io/apimachinery v0.20.5
 	k8s.io/client-go v0.20.5
 	k8s.io/klog v1.0.0
-	srlinux.io/go v0.0.0-00010101000000-000000000000
 )
