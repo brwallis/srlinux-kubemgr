@@ -1,0 +1,11 @@
+kube_mgr:
+   path: /etc/opt/srlinux/kubemgr/bin
+   launch-command: KUBERNETES_SERVICE_HOST=$KUBERNETES_SERVICE_HOST KUBERNETES_SERVICE_PORT=$KUBERNETES_SERVICE_PORT KUBERNETES_NODE_NAME=$KUBERNETES_NODE_NAME KUBERNETES_NODE_IP=$KUBERNETES_NODE_IP ./kubemgr
+   search-command: ./kubemgr
+   failure-threshold: 100
+   failure-action: "wait=60"
+   yang-modules:
+       names:
+           - "kube"
+       source-directories:
+           - "/etc/opt/srlinux/kubemgr/yang/"

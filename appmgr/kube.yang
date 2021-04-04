@@ -1,0 +1,62 @@
+module kube {
+
+    yang-version 1.1;
+
+    // namespace
+    namespace "urn:srl_ndk_apps/kubernetes";
+
+    prefix "srl_ndk_apps-kubernetes";
+
+    revision "2021-01-24" {
+        description "Initial revision";
+    }
+    grouping kubernetes-top {
+        description "Top level grouping for Kubernetes configuration and state";
+        container kubernetes {
+            presence "Top-level container for the Kubernetes configuration and state";
+            description "Top level enclosing container for Kubernetes";
+
+            leaf name {
+                type string;
+                description "Name";
+            }
+            leaf response {
+                config false;
+                description "Response to input";
+                type string;
+            }
+            leaf node-name {
+                config false;
+                description "Node name as returned by Kubernetes";
+                type string;
+            }
+            leaf local-pods {
+                config false;
+                description "Local active pods in all namespaces in Kubernetes";
+                type uint32;
+            }
+            leaf cluster-pods {
+                config false;
+                description "Global active pods in all namespaces in Kubernetes";
+                type uint32;
+            }
+            leaf cpu-max {
+                config false;
+                type uint32;
+                description 
+                  "The maximum number of CPUs allowed for vXDP threads
+                  
+                  This is the highest number of CPUs the system will scale to.";
+            }
+            leaf cpu-min {
+                config false;
+                type uint32;
+                description 
+                  "The minimum number of CPUs allowed for vXDP threads
+                  
+                  This is the base CPUs the system will start with, and will scale up to the value specified in cpu-max.";
+            }
+        }
+    }
+    uses kubernetes-top;
+}

@@ -1,1 +1,1 @@
-# srlinux-kubemgr
+# SR Linux K8 agent
