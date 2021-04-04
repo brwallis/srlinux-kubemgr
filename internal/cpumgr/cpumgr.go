@@ -6,17 +6,18 @@ import (
 	"strconv"
 	"time"
 
-	"srlinux.io/kubemgr/internal/agent"
-	"srlinux.io/kubemgr/internal/cpu"
+	"github.com/brwallis/srlinux-kubemgr/internal/agent"
+	"github.com/brwallis/srlinux-kubemgr/internal/cpu"
+
+	"github.com/brwallis/srlinux-go/pkg/gnmi"
 
 	log "k8s.io/klog"
 
-	"github.com/brwallis/srlinux-go/pkg/gnmi"
 	gpb "github.com/openconfig/gnmi/proto/gnmi"
 
 	v1 "k8s.io/api/core/v1"
-	"k8s.io/client-go/informers"
 	coreinformers "k8s.io/client-go/informers/core/v1"
+	"k8s.io/client-go/informers"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/cache"
 )
